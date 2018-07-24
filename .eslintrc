@@ -3,6 +3,5 @@
     "react-app",
     "plugin: prettier/recommended",
     "plugin: flowtype/recommended"
-  ],
-  "plugins": ["flowtype"]
+  ]
 }

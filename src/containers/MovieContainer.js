@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import MovieList from "../components/MovieList";
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ movies: state }) => {
     return { movies: state.movies };
 }
 

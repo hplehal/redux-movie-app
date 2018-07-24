@@ -1,32 +1,40 @@
 //@flow
 import React from "react";
-import { Field, reduxForm } from "redux-form";
+import { reduxForm, Field } from "redux-form";
 import "./searchBar.css";
 
-// <input type="text" className="searchBar" onChange={e => submitSearch(e)} value={value} />
+//  />{console.log(values)}
+// <input type="text" className="searchBar" onChange={e => submitSearch(e)} value={value}/>
+//
+//    <button className="button" type="submit">
+//     <i className="fa fa-search" />
+//   </button>
 type Props = {
-    value: any,
-    loading: boolean,
-    submitSearch: string => void
-};
-let searchBar =({
-    value,
-    submitSearch,
-    loading
-}:Props) => {
-    return <form onSubmit={submitSearch}>
-        {loading ? <p> Loading.... </p> : <div>
-            <input type="text" className="searchBar" onChange={e => submitSearch(e)} value={value} />
-            <Field name="search" component="input" type="text" />
-            <button className="button" type="submit">
-              <i className="fa fa-search" />
-            </button>
-          </div>}
-      </form>;
+  value: any,
+  loading: boolean,
+  handleChange: any,
+  handleSubmit: string => void
 };
 
-searchBar = reduxForm({
-  // a unique name for the form
-  form: "searchBar"
-})(searchBar);
-export default searchBar;
+const SearchBar = ({ loading, handleSubmit, handleChange, value }: Props) => {
+  return (
+    <form onSubmit={handleSubmit}>
+      {loading ? (
+        <p> Loading... </p>
+      ) : (
+        <div>
+          <Field
+            className="searchBar"
+            name="search"
+            component="input"
+            type="text"
+            value={value}
+            onChange={handleChange}
+          />
+        </div>
+      )}
+    </form>
+  );
+};
+
+export default reduxForm({ form: "SearchBar" })(SearchBar);

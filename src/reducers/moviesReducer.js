@@ -1,7 +1,7 @@
 const initialState = {
     movies: [],
     loading: false,
-    value: []
+    value:''
 }
 const moviesReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -10,15 +10,15 @@ const moviesReducer = (state = initialState, action) => {
             if(loading){
                 return{
                     ...state,
-                    value,
-                    loading:true
+                    loading:true,
+                    value
                 }
             }
             return { 
                 ...state,
                 movies,
-                value,
-                loading: false
+                loading: false,
+                value
             }
         default:
            return state;

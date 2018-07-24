@@ -1,21 +1,31 @@
-import {connect} from "react-redux";
-import {fetchMovieTitle} from "../actions/index";
-import searchBar from "../components/searchBar";
+import React from "react";
+import { connect } from "react-redux";
+import { fetchMovieTitle } from "../actions/index";
+import SearchBar from "../components/searchBar";
 
-const mapStateToProps = state=> {
-    return{
-        value: state.value,
-        loading: state.loading
-    }
-}
+let SearchBarContainer = ({ submitSearch, values, loading }) => {
+  return (
+    <SearchBar
+      loading={loading}
+      onSubmit={values => submitSearch(values.search)}
+      onChange = {values => submitSearch(values.search)}
+    />
+  );
+};
 
-const mapDispatchToProps = (dispatch) => {
-    return{
-        submitSearch: query => dispatch(fetchMovieTitle(query.target.value))
-    }
+const mapStateToProps = state => {
+  return {
+    loading: state.loading
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    submitSearch: query => dispatch(fetchMovieTitle(query))
+  };
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(searchBar);
+)(SearchBarContainer);
