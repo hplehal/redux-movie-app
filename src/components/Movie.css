@@ -1,0 +1,19 @@
+.card {
+  flex: 0 1 calc(20% - 1em);
+  list-style: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 1rem 0.25em;
+  padding: 30px;
+  background: #fff;
+}
+
+.card h1 {
+  color: #007489;
+}
+
+img {
+  display: block;
+  border: 0;
+  width: 100%;
+  height: auto;
+}
