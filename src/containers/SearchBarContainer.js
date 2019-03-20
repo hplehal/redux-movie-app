@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { fetchMovieTitle } from "../actions/index";
 import SearchBar from "../components/searchBar";
 
-let SearchBarContainer = ({ submitSearch, values, loading }) => {
+const SearchBarContainer = ({ submitSearch, values, loading }) => {
   return (
     <SearchBar
       loading={loading}
